@@ -17,6 +17,10 @@ fi
 # 							   sudo easy_install Pygments
 alias c='pygmentize -O style=monokai -f console256 -g'
 
+# Misc Tools
+alias whatsmyip='curl http://checkip.amazonaws.com'
+alias whatismyip=whatsmyip
+
 # Aliases for Vagrant
 alias vagrant-phoenix='vagrant destroy && vagrant up'
 alias vagrant-ssh='vagrant up && vagrant ssh'
