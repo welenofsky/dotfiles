@@ -15,3 +15,9 @@ set foldlevelstart=10				" open most folds by default
 " Key Bindings
 nnoremap <leader><space> :nohlsearch<CR>	" turn off search highlight ( \ + <spacebar> )
 nnoremap <space> za				" space opens and closes folds
+
+" Spacing for tabs
+set smartindent
+set tabstop=4
+set shiftwidth=4
+set expandtab
