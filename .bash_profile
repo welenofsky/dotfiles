@@ -12,6 +12,12 @@ unset file
 export LC_ALL="en_US.UTF-8"
 export LANG="en_US"
 
+if [ -f /usr/bin/subl ]
+then
+    # Use subl as editor
+    export EDITOR='subl -w'
+fi
+
 # Add tab completion for SSH hostnames based on ~/.ssh/config, ignoring wildcards
 [ -e "$HOME/.ssh/config" ] && complete -o "default" -o "nospace" -W "$(grep "^Host" ~/.ssh/config | grep -v "[?*]" | cut -d " " -f2)" scp sftp ssh
 
@@ -25,4 +31,9 @@ export PATH=/usr/local/bin:$PATH
 # Setting PATH for Python 3.4
 # The orginal version is saved in .bash_profile.pysave
 PATH="/Library/Frameworks/Python.framework/Versions/3.4/bin:${PATH}"
+export PATH
+
+# Setting PATH for Python 3.5
+# The orginal version is saved in .bash_profile.pysave
+PATH="/Library/Frameworks/Python.framework/Versions/3.5/bin:${PATH}"
 export PATH
