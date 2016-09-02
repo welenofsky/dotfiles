@@ -28,3 +28,4 @@ alias vagrant-ssh='vagrant up && vagrant ssh'
 ## GIT stuff
 # undo git push
 alias undopush="git push -f origin HEAD^:master"
+alias undolocal="git reset HEAD~"
