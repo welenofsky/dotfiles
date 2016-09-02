@@ -12,7 +12,7 @@ unset file
 export LC_ALL="en_US.UTF-8"
 export LANG="en_US"
 
-if [ -f /usr/bin/subl ]
+if [ -f /usr/bin/subl ] || [ -f /usr/local/bin/subl ]
 then
     # Use subl as editor
     export EDITOR='subl -w'
