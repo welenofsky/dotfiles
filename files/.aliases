@@ -31,5 +31,7 @@ alias undopush="git push -f origin HEAD^:master"
 alias undolocal="git reset HEAD~"
 
 ## OSX Specific Aliases
-alias showhiddenfiles="defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app"
-alias hidehiddenfiles="defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app"
+if [[ "$OSTYPE" =~ ^darwin ]]; then
+	alias showhiddenfiles="defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app"
+	alias hidehiddenfiles="defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app"
+fi
