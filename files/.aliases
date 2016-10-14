@@ -25,6 +25,9 @@ if command -v curl >/dev/null 2>&1; then
 	alias whatismyip=whatsmyip
 fi
 
+alias ..='cd ..'
+alias ...='cd ../..'
+
 # Aliases for Vagrant
 if command -v vagrant >/dev/null 2>&1; then
 	alias vagrant-phoenix='vagrant destroy && vagrant up'
