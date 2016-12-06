@@ -15,23 +15,37 @@ fi
 
 # `cat` with beautiful colors. requires Pygments installed.
 # 							   sudo easy_install Pygments
-alias c='pygmentize -O style=monokai -f console256 -g'
+if command -v pygmentize >/dev/null 2>&1; then
+	alias c='pygmentize -O style=monokai -f console256 -g'
+fi
 
 # Misc Tools
-alias whatsmyip='curl http://checkip.amazonaws.com'
-alias whatismyip=whatsmyip
+if command -v curl >/dev/null 2>&1; then
+	alias whatsmyip='curl http://checkip.amazonaws.com'
+	alias whatismyip=whatsmyip
+fi
+
+alias ..='cd ..'
+alias ...='cd ../..'
+alias untar='tar -xvf'
+
 
 # Aliases for Vagrant
-alias vagrant-phoenix='vagrant destroy && vagrant up'
-alias vagrant-ssh='vagrant up && vagrant ssh'
+if command -v vagrant >/dev/null 2>&1; then
+	alias vagrant-phoenix='vagrant destroy && vagrant up'
+	alias vagrant-ssh='vagrant up && vagrant ssh'
+fi
 
 ## GIT stuff
 # undo git push
-alias undopush="git push -f origin HEAD^:master"
-alias undolocal="git reset HEAD~"
+if command -v git >/dev/null 2>&1; then
+	alias undopush="git push -f origin HEAD^:master"
+	alias undolocal="git reset HEAD~"
+fi
 
 ## OSX Specific Aliases
 if [[ "$OSTYPE" =~ ^darwin ]]; then
+	alias flush='sudo killall -HUP mDNSResponder'
 	alias showhiddenfiles="defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app"
 	alias hidehiddenfiles="defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app"
 fi

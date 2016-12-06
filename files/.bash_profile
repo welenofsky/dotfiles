@@ -25,15 +25,18 @@ fi
 # You could just use `-g` instead, but I like being explicit
 ## complete -W "NSGlobalDomain" defaults
 
-# For homebrew, prioritizes hombrew binaries
-export PATH=/usr/local/bin:$PATH
+# Homebrew config
+if command -v brew >/dev/null 2>&1; then
+	# For homebrew, prioritizes hombrew binaries
+	export PATH=/usr/local/bin:$PATH
 
-# Setting PATH for Python 3.4
-# The orginal version is saved in .bash_profile.pysave
-PATH="/Library/Frameworks/Python.framework/Versions/3.4/bin:${PATH}"
-export PATH
+	# Setting PATH for Python 3.4
+	# The orginal version is saved in .bash_profile.pysave
+	PATH="/Library/Frameworks/Python.framework/Versions/3.4/bin:${PATH}"
+	export PATH
 
-# Setting PATH for Python 3.5
-# The orginal version is saved in .bash_profile.pysave
-PATH="/Library/Frameworks/Python.framework/Versions/3.5/bin:${PATH}"
-export PATH
+	# Setting PATH for Python 3.5
+	# The orginal version is saved in .bash_profile.pysave
+	PATH="/Library/Frameworks/Python.framework/Versions/3.5/bin:${PATH}"
+	export PATH
+fi
