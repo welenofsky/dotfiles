@@ -1,3 +1,6 @@
+#
+# ~/.bashrc
+#
 # @gf3’s Sexy Bash Prompt, inspired by “Extravagant Zsh Prompt”
 # Shamelessly copied from https://github.com/gf3/dotfiles
 

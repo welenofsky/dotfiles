@@ -1,11 +1,12 @@
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
 # Load ~/.extra, ~/.bash_prompt, ~/.exports, ~/.aliases and ~/.functions
 # ~/.extra can be used for settings you don’t want to commit
-for file in ~/.{bash_prompt,aliases}; do
+for file in ~/.{bash_prompt,aliases,bashrc}; do
 	[ -r "$file" ] && source "$file"
 done
 unset file
-
-[[ -f ~/.bashrc ]] && . ~/.bashrc
 
 # Case-insensitive globbing (used in pathname expansion)
 ## shopt -s nocaseglob
@@ -51,7 +52,7 @@ fi
 # Homebrew config
 if command -v brew >/dev/null 2>&1; then
 	# For homebrew, prioritizes hombrew binaries
-	export PATH=/usr/local/bin:$PATH
+	export PATH="/usr/local/bin:$PATH"
 
 	# Setting PATH for Python 3.4
 	# The orginal version is saved in .bash_profile.pysave
@@ -62,4 +63,9 @@ if command -v brew >/dev/null 2>&1; then
 	# The orginal version is saved in .bash_profile.pysave
 	PATH="/Library/Frameworks/Python.framework/Versions/3.5/bin:${PATH}"
 	export PATH
+fi
+
+if [ -f ~/.rbenv/bin/rbenv ]; then
+	export PATH="$HOME/.rbenv/bin:$PATH"
+	eval "$(rbenv init -)"
 fi
