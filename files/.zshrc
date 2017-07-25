@@ -13,6 +13,11 @@ if [ -f ~/.rbenv/bin/rbenv ]; then
     eval "$(rbenv init -)"
 fi
 
+# anaconda
+if [ -d ~/anaconda/bin ]; then
+    export PATH="$HOME/anaconda/bin:$PATH"
+fi
+
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/jwelenofsky/.oh-my-zsh
 
