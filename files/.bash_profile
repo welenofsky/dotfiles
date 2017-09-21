@@ -9,7 +9,7 @@ done
 unset file
 
 # Case-insensitive globbing (used in pathname expansion)
-## shopt -s nocaseglob
+shopt -s nocaseglob
 
 # Prefer US English and use UTF-8
 export LC_ALL="en_US.UTF-8"
@@ -58,4 +58,10 @@ fi
 if [ -f ~/.rbenv/bin/rbenv ]; then
 	export PATH="$HOME/.rbenv/bin:$PATH"
 	eval "$(rbenv init -)"
+fi
+
+if [ -d /Library/Frameworks/Python.framework/Versions/3.6/bin ]; then
+	# Setting PATH for Python 3.6
+	# The original version is saved in .bash_profile.pysave
+	export PATH="/Library/Frameworks/Python.framework/Versions/3.6/bin:${PATH}"
 fi
