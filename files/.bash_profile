@@ -65,3 +65,8 @@ if [ -d /Library/Frameworks/Python.framework/Versions/3.6/bin ]; then
 	# The original version is saved in .bash_profile.pysave
 	export PATH="/Library/Frameworks/Python.framework/Versions/3.6/bin:${PATH}"
 fi
+
+# Perl6 Mac
+if [ -d /Applications/Rakudo/ ]; then
+    export PATH=$PATH:/Applications/Rakudo/bin:/Applications/Rakudo/share/perl6/site/bin
+fi
