@@ -70,3 +70,7 @@ fi
 if [ -d /Applications/Rakudo/ ]; then
     export PATH=$PATH:/Applications/Rakudo/bin:/Applications/Rakudo/share/perl6/site/bin
 fi
+
+# Case insensitive tab completion
+bind 'set completion-ignore-case on'
+
