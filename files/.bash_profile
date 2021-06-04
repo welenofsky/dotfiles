@@ -71,6 +71,18 @@ if [ -d /Applications/Rakudo/ ]; then
     export PATH=$PATH:/Applications/Rakudo/bin:/Applications/Rakudo/share/perl6/site/bin
 fi
 
+# DNS Helpers
+whodns () {
+    basedomain=`echo $1 | rev | cut -d'.' -f1,2 | rev`
+    dnsdomain=$(dig +short NS $basedomain | head -1 | rev | cut -d"." -f2,3 | rev)
+    whois $dnsdomain | grep "Registrant Organization: " | cut -d":" -f2 | sed -e 's/^[[:space:]]*//'
+}
+
+whoregistrar () {
+    basedomain=`echo $1 | rev | cut -d'.' -f1-2 | rev`
+    whois $basedomain | grep "Registrar: " | head -1 | cut -d":" -f2 | sed -e 's/^[[:space:]]*//'
+}
+
 # Case insensitive tab completion
 bind 'set completion-ignore-case on'
 
